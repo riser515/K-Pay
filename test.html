@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payout CheesyPay</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        font-size: 1em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+      }
+      .container {
+        margin: 0;
+        padding: 0;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      button {
+        width: 200px;
+        height: 35px;
+        border-radius: 50px;
+        background-color: rgb(7, 123, 231);
+        font-size: 15px;
+      }
+      button:hover {
+        background-color: rgb(26, 137, 241);
+      }
+      h1 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Scan and Pay</h1>
+      <div>
+        <img src="${url}" alt="QR code" />
+        <!-- <img
+          src="data:image/png;base64,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"
+          alt="QR code"
+        /> -->
+      </div>
+      <h2>
+        Amount :
+        <h1>₹${amt}</h1>
+        <!-- <h1>₹500</h1> -->
+      </h2>
+      <button type="submit" onclick="history.go(-1)">Make new payment</button>
+    </div>
+    <script>
+      function fetchAmt() {
+        window.location.href = "#";
+        return false;
+      }
+    </script>
+  </body>
+</html>

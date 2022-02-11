@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payout CheesyPay</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        font-size: 1em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .container {
+        margin: 0;
+        padding: 0;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      div {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+      input {
+        width: 250px;
+        height: 28px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+      button {
+        width: 250px;
+        height: 28px;
+        border-radius: 50px;
+        background-color: rgb(7, 123, 231);
+        color: white;
+      }
+      button:hover {
+        background-color: rgb(26, 137, 241);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title1">Welcome to CheesyPay</h1>
+      <form action="" method="post" onsubmit="return fetchAmt();">
+        <div><label for="">Enter Amount:</label></div>
+        <input type="number" name="amt" id="amt" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <script>
+      let h1 = document.getElementById("title1");
+      function fetchAmt() {
+        let amt = document.getElementById("amt").value;
+        window.location.href = `/api/qrcode?amt=${amt}`;
+        return false;
+      }
+    </script>
+  </body>
+</html>
